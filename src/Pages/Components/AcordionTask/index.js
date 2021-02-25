@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 import { BodyTask, Container, TitleTask,MenuAction } from './styles';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { useDrag } from "react-dnd";
-
 function AcordionTask(props) {
-    const task = props.task
+    const task = props.tarefa
     const [opendrop,setopen] = useState(false)
-    const [{isDragging}, dragRef] = useDrag({
-        item:{type:'Acordion'},
-        collect:monitor=>({
-            isDragging: monitor.isDragging(),
-        }),
-    })
+    const [{ isDragging }, dragRef] = useDrag({
+          item: {type:'card' },
+          collect: (monitor) => ({
+            isDragging: monitor.isDragging()
+          })
+        }
+      )
     const handledrop = (e)=>{
         e.stopPropagation();
         setopen(e.currentTarget)
@@ -23,10 +23,10 @@ function AcordionTask(props) {
     }
 
   return (
-    <Container ref={dragRef} isDragging={isDragging}>
-    <TitleTask>
+    <Container >
+    <TitleTask ref={ dragRef}  id='CARD' isDragging={isDragging}>
         <Toolbar className='toolbar-ui'>
-            <Typography>
+            <Typography >
                 {task.nome}
             </Typography>
             <IconButton onClick={(e) => {handledrop(e)}} aria-controls={'dropmenu'+task.id} aria-haspopup="true">
@@ -34,9 +34,9 @@ function AcordionTask(props) {
             </IconButton>
         </Toolbar>
     </TitleTask>
-    <BodyTask>
+    <BodyTask className='bodytask'>
         <Toolbar>
-            <Typography>
+            <Typography >
                 {task.detalhes}
             </Typography>
         </Toolbar>

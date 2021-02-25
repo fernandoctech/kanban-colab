@@ -2,11 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Menu } from '@material-u
 import styled,{css} from 'styled-components';
 
 export const Container = styled(Accordion)`
-  ${props=>props.isDragging && css`
-    border:2px solid black;
-    background:gray;
-    cursor: grabbing!important;
-  ` }
+  margin-top:5px;
 `;
 export const TitleTask = styled(AccordionSummary)`
     .toolbar-ui{
@@ -14,6 +10,15 @@ export const TitleTask = styled(AccordionSummary)`
         display:flex;
         justify-content:space-between;
     }
+    background:white;
+    ${props=>props.isDragging && css`
+    border:2px dashed gray;
+    background-color:#80808017;
+    cursor: grabbing!important;
+    .toolbar-ui{
+       visibility:hidden;
+    }
+  ` }
 `;
 export const BodyTask = styled(AccordionDetails)`
 

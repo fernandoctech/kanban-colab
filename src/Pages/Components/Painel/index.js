@@ -50,14 +50,14 @@ function PainelToDo(props) {
                           </Box>
                       </SpaceStatus>
                   </Paper>
-                  <ButtonAdd >
+                  <ButtonAdd variant='contained'>
                         <Add/>
                   </ButtonAdd>
                   <Cards>
                         {tasks.map(task => {
                             if(task.status_tarefa_id === x.id ){
                                 return(
-                                   <AcordionTask task={task}/>
+                                   <AcordionTask tarefa={task} />
                                 )
                             }
                         })}
