@@ -1,8 +1,12 @@
 import { Accordion, AccordionDetails, AccordionSummary, Menu } from '@material-ui/core';
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 
 export const Container = styled(Accordion)`
-  
+  ${props=>props.isDragging && css`
+    border:2px solid black;
+    background:gray;
+    cursor: grabbing!important;
+  ` }
 `;
 export const TitleTask = styled(AccordionSummary)`
     .toolbar-ui{
