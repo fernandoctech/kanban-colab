@@ -1,5 +1,5 @@
-import { Avatar, Divider, IconButton, MenuItem, MenuList, Toolbar, Typography } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
+import { Avatar, Box, Divider, IconButton, MenuItem, MenuList, Toolbar, Typography } from '@material-ui/core';
+import { Delete, Edit, Menu, ThumbDownAlt, ThumbUpAlt } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { BodyTask, Container, TitleTask,MenuAction } from './styles';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
@@ -37,27 +37,38 @@ function AcordionTask(props) {
     open={Boolean(opendrop)} 
     onClose={e=>setopen(false)} 
     id={'dropmenu'+task.id}
+    getContentAnchorEl={null}
     anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
     >
-        <MenuList>
-            <MenuItem className='Menubtnstask' >
+        <MenuList className='menulists-ui'>
+            <Box className='Menubtnstask' >
                 <Typography>
-                    Campo
+                    <IconButton>
+                        <Edit style={{color:'#32B36B'}}/>
+                    </IconButton>
+                    <IconButton>
+                        <Delete style={{color:'red'}}/>
+                    </IconButton>
                 </Typography>
-            </MenuItem>
+            </Box>
             <Divider/>
-            <MenuItem className='Menubtnstask' >
+            <Box className='Menubtnstask' >
                 <Typography>
-                    Campo
+                    <IconButton>
+                        <ThumbUpAlt style={{color:'#32B36B'}}/>
+                    </IconButton>
+                    <IconButton>
+                        <ThumbDownAlt style={{color:'red'}}/>
+                    </IconButton>
                 </Typography>
-            </MenuItem>
+            </Box>
             <Divider/>
             <MenuItem className='Menubtnstask' >
                 <Typography>

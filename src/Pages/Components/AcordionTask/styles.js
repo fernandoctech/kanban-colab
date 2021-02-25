@@ -19,4 +19,10 @@ export const MenuAction = styled(Menu)`
         display:flex;
         justify-content:space-around;
     }
+    .MuiPaper-root {
+        background:#485860!important;
+    }
+    .MuiDivider-root{
+        background-color:#bdbdbd;
+    }
 `;
