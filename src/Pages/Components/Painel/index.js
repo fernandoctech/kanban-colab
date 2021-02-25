@@ -1,33 +1,42 @@
-import { Box, IconButton, Paper, Typography } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Card, IconButton, Paper, Toolbar, Typography } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Api from '../../../api';
+import AcordionTask from '../AcordionTask';
 import { Container,Aba ,SpaceStatus,ButtonAdd, Cards} from './styles';
 
 function PainelToDo(props) {
+    const [tasks,settasks] = useState([]);
     const status = [
         {
-            'id':'1',
+            'id':1,
             'nome':'A Fazer',
             'sequencia':'1',
             'icone':'build',
         },
         {
-            'id':'2',
+            'id':2,
             'nome':'Andamento',
             'sequencia':'2',
             'icone':'access_time',
         },
         {
-            'id':'3',
+            'id':3,
             'nome':'Feito',
             'sequencia':'3',
             'icone':'done_all',
         }
     ]
-
+    useEffect(()=>{
+        const load_tasks = async() =>{
+            const res = await Api.post('buscar_tarefas')
+            settasks(res.data)
+        }
+        load_tasks()
+    },[])
   return (
         <Container>
-          {status.map(x=>(
+          {status.map( x => (
               <Aba elevation='0'>
                   <Paper>
                       <SpaceStatus>
@@ -45,7 +54,13 @@ function PainelToDo(props) {
                         <Add/>
                   </ButtonAdd>
                   <Cards>
-                        
+                        {tasks.map(task => {
+                            if(task.status_tarefa_id === x.id ){
+                                return(
+                                   <AcordionTask task={task}/>
+                                )
+                            }
+                        })}
                   </Cards>
               </Aba>
           ))}

@@ -18,5 +18,6 @@ export const ButtonAdd = styled(IconButton)`
 
 `;
 export const Cards = styled(Box)`
-
+display:flex;
+flex-direction:column;
 `;
