@@ -40,6 +40,9 @@ function PainelToDo(props) {
               <Aba elevation='0'>
                   <Paper>
                       <SpaceStatus>
+                            <ButtonAdd variant='outlined'>
+                                    <Add/>
+                            </ButtonAdd>
                           <Typography>
                             {x.nome}
                           </Typography>
@@ -50,9 +53,6 @@ function PainelToDo(props) {
                           </Box>
                       </SpaceStatus>
                   </Paper>
-                  <ButtonAdd variant='contained'>
-                        <Add/>
-                  </ButtonAdd>
                   <Cards>
                         {tasks.map(task => {
                             if(task.status_tarefa_id === x.id ){

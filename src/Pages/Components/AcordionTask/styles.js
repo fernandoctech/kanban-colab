@@ -13,6 +13,7 @@ export const TitleTask = styled(AccordionSummary)`
     background:white;
     ${props=>props.isDragging && css`
     border:2px dashed gray;
+    /* display:none; */
     background-color:#80808017;
     cursor: grabbing!important;
     .toolbar-ui{
