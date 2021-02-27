@@ -1,10 +1,15 @@
-import { Avatar, Button,  Typography } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import { Menu,Avatar, Button,  MenuItem,  MenuList,  Typography } from "@material-ui/core";
+import { Menu as MenuIcon} from "@material-ui/icons";
+import { useState } from "react";
 import { logout } from "../../Login/auth";
 import { Container,Logo, SpaceHeader,MenuHeader,Buttons,BotaoIcone } from "./styles";
 
 
 function Header(props) {
+    const [open_menu,setOpenMenu] = useState(false);
+    const handleOpenMenu=(e)=>{
+        setOpenMenu(e.currentTarget)
+    }
     return(
         <Container>
             <SpaceHeader variant='dense'>
@@ -13,7 +18,7 @@ function Header(props) {
                        {' < '}Colab
                     </Typography>
                     <Typography variant='h5' style={{color:'#485860'}}>
-                        Dev's {'>'}
+                        Dev's {'/>'}
                     </Typography>
                 </Logo>
                 <MenuHeader>
@@ -21,12 +26,33 @@ function Header(props) {
                         <Avatar></Avatar>
                     </Button>
                     <Buttons>
-                        <BotaoIcone onClick={logout}>
-                            <Menu/>
+                        <BotaoIcone onClick={handleOpenMenu} aria-controls={'menu'} aria-haspopup="true">
+                            <MenuIcon/>
                         </BotaoIcone>
                     </Buttons>
                 </MenuHeader>
             </SpaceHeader>
+            <Menu
+            anchorEl={open_menu} 
+            open={Boolean(open_menu)} 
+            onClose={e=>setOpenMenu(false)} 
+            id={'menu'}
+            getContentAnchorEl={null}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+            >
+                <MenuList>
+                    <MenuItem onClick={logout}>
+                        logout
+                    </MenuItem>
+                </MenuList>
+            </Menu>
         </Container>
     )
 }
