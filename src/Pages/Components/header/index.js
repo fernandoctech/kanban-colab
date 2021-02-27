@@ -1,5 +1,6 @@
 import { Avatar, Button,  Typography } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
+import { logout } from "../../Login/auth";
 import { Container,Logo, SpaceHeader,MenuHeader,Buttons,BotaoIcone } from "./styles";
 
 
@@ -20,7 +21,7 @@ function Header(props) {
                         <Avatar></Avatar>
                     </Button>
                     <Buttons>
-                        <BotaoIcone>
+                        <BotaoIcone onClick={logout}>
                             <Menu/>
                         </BotaoIcone>
                     </Buttons>

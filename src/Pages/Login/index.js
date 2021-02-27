@@ -21,7 +21,9 @@ function Login(props) {
 
     const autenticar = async() =>{
         const res = await Api.post('login',{'username':user,'password':passwd})
-        login(res.data)
+        console.log(res.data)
+        login(res.data.access_token)
+        props.history.push("/")
     }   
 
   return(

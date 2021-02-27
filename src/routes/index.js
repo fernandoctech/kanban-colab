@@ -39,7 +39,7 @@ function Routes(props) {
         <Router>
             <Switch>
                 <PrivateRoute  exact path='/' component={Dashboard}/>
-                <Route   path='/login' component={Login}/>
+                <LogRoute   path='/login' component={Login}/>
             </Switch>
         </Router>
     )
