@@ -11,6 +11,7 @@ export function login (dados_usuario){
     // sessionStorage.setItem(filial,dados_usuario.filial);
     // sessionStorage.setItem(usuario_nome,dados_usuario.nome);
     sessionStorage.setItem(token,dados_usuario);
+    
 }
 
 export function logout (){
