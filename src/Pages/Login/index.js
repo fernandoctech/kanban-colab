@@ -21,9 +21,11 @@ function Login(props) {
 
     const autenticar = async() =>{
         const res = await Api.post('login',{'username':user,'password':passwd})
-        console.log(res.data)
         login(res.data.access_token)
-        props.history.push("/")
+        props.history.push({
+            pathname: '/',
+            state: { userdate: res.data }
+        })
     }   
 
   return(
@@ -85,7 +87,7 @@ function Login(props) {
                         </Button>
                     </Box>
                     <Box>
-                        <IconButton onClick={e=>login()}>
+                        <IconButton onClick={e=>autenticar()}>
                             <ArrowForwardIosOutlined style={{color:'#32B36B'}}/>
                         </IconButton>
                     </Box>

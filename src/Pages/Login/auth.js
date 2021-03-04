@@ -1,7 +1,7 @@
 // const usuario_id = '@inventario_usuario_id'
 // const filial = '@inventario_filial'
 // const usuario_nome = '@inventario_usuario_nome'
-const token = '@app_kanbam-colab'
+const token = '@app_kanbam_colab'
 export const getToken = () => sessionStorage.getItem(token);
 
 export const Autenticado = () => sessionStorage.getItem(token) !== null;

@@ -14,6 +14,7 @@ export const Logo= styled(Box)`
 `;
 export const MenuHeader = styled(Box)`
 display:flex;
+align-items:center;
 `;
 export const Buttons = styled(Box)`
 

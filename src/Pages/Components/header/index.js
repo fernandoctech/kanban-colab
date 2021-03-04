@@ -7,6 +7,7 @@ import { Container,Logo, SpaceHeader,MenuHeader,Buttons,BotaoIcone } from "./sty
 
 function Header(props) {
     const [open_menu,setOpenMenu] = useState(false);
+    const user = props.rotas.history.location.state.userdate;
     const handleOpenMenu=(e)=>{
         setOpenMenu(e.currentTarget)
     }
@@ -22,8 +23,9 @@ function Header(props) {
                     </Typography>
                 </Logo>
                 <MenuHeader>
+                        <Typography style={{color:'black'}}>{user.nome}</Typography>
                     <Button>
-                        <Avatar></Avatar>
+                        <Avatar src={user.url_imagem}></Avatar>
                     </Button>
                     <Buttons>
                         <BotaoIcone onClick={handleOpenMenu} aria-controls={'menu'} aria-haspopup="true">
